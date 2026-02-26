@@ -1,0 +1,962 @@
+@font-face {
+    font-family: 'Fogtwono5';
+  src: url('./assets/fonts/fogtwono5-font/Fogtwono5-Bzl8.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Scheherazade-FS";
+  src: url("./assets/fonts/scheherazade-font/Scheherazade-o3VB.ttf")
+       format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+*{
+  margin: 0;
+  top: 0;
+  box-sizing: border-box;
+}
+.mobil{
+  display: none;
+}
+.laptop{
+  display: block;
+}
+body{
+    background-color:#f7f5f2;
+    margin: 0;
+}
+h1{
+    font-family: 'Fogtwono5';
+    font-size: 6vw;
+   
+      text-transform: uppercase;
+      font-weight: 100;
+        -webkit-font-smoothing: antialiased; /* giver lettere font */
+  -moz-osx-font-smoothing: grayscale;  /* Mac */
+  
+}
+.H1hvid{
+    font-family: 'Fogtwono5';
+    font-size: 6vw;
+      text-transform: uppercase;
+    color: #f2f2f2;
+      -webkit-font-smoothing: antialiased; /* giver lettere font */
+  -moz-osx-font-smoothing: grayscale;  /* Mac */
+}
+.StorH1{
+    font-size: 10vw;
+}
+p{
+    font-family: "Scheherazade-FS";
+    font-size: 1.5vw;
+    font-weight: lighter;
+      -webkit-font-smoothing: antialiased; /* giver lettere font */
+  -moz-osx-font-smoothing: grayscale;  /* Mac */
+}
+.Phvid{
+    font-family: "Scheherazade-FS";
+    font-size: 1.5vw;
+    color: #f2f2f2;
+    font-weight: 100;
+      -webkit-font-smoothing: antialiased; /* giver lettere font */
+  -moz-osx-font-smoothing: grayscale;  /* Mac */
+}
+
+.marginAssist{
+    width: 100vw;
+    text-align: center;
+}
+.alignC{
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: #000;
+    text-align: left;
+}
+/*--------------navigation--------------------*/
+.navigation{
+  height: 50px;
+  background-color: #f7f5f2;
+  position: fixed;
+  z-index: 999;
+  width: 100vw;
+  padding-top: 8px;
+  top: 0; 
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+}
+#burger-menu{
+  display: none;
+}
+.navlink{
+   font-family: "Scheherazade-FS";
+  color: #000;
+  text-decoration: none;
+  font-weight: lighter;
+  margin-bottom: 20px;
+  font-size: 15pt;
+  z-index: 1;
+ position: relative;
+}
+
+#menu{
+  width: 100vw;
+  display: flex;
+    justify-content: space-between;
+}
+
+#xul{
+  display: flex;
+  width: 50vw;
+  justify-content: space-between;
+  padding-left: 6vw;    
+}
+#orderLink{
+    border: solid 0.5px black;
+    height: 25px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-right: 5vw;
+}
+#menu .navlink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 0.75px;
+  background-color: currentColor;
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+#menu .navlink:hover::after {
+  transform: scaleX(1);
+}
+#orderLink:hover{
+    background-color: #e8e1d8;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+}
+#orderLink.no-underline::after {
+  display: none;
+}
+/*------COMPONENTS-------*/
+
+/*----FuldBilledTxt-----*/
+.fuldbillede{
+    width: 100vw;
+    height: fit-content;
+    margin-bottom: 20vh;
+}
+#forsidebaggrund{
+    background-image: url(./assets/images/COYT-176.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.FBtxt{
+    padding-top: 15vh;
+    text-align: center;
+}
+.FBtxt h1{
+    width: 60vw;
+    margin-left: 20vw;
+    padding-bottom: 13vh;
+}
+.FBtxt p{
+    width: 50vw;
+    margin-left: 25vw;
+    padding-bottom: 10vh;
+}
+.btndivretail{
+    width: 60vw;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    padding-bottom: 30vh;
+}
+.btn{
+    width: 20vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    text-align: center;
+    color: #000;
+    background-color: white;
+    text-decoration: none;
+    font-family: "Scheherazade-FS";
+    font-size: 1.3vw; 
+}
+.retailbtn{
+    width: 15vw;
+    
+  }
+.btn:hover{
+    opacity: 0.5;
+    transition: 0.3s ease-in-out;
+}
+
+/*----CollectionCard------*/
+#horisontalscroll{
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none; 
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+}
+#collectionContainer{
+    width: 100vw;
+    padding-left: 5vw;
+    gap: 4vw;
+    display: flex;  
+    justify-content: space-between;
+    margin-top: 8vh;
+    margin-bottom: 20vh;
+}
+#collecioncard{
+    text-align: left;
+    margin-bottom: 5vh;
+}
+
+.CCimg{
+    width: 36vw;
+    height: 85vh;
+    object-fit: cover;
+    margin-bottom: 2vh;
+}
+.streg{
+    width: 25vw;
+    height: 0.5px;
+    background-color: #000;
+}
+.collection-title {
+  white-space: pre-line;
+}
+/*------TxtImg--------*/
+#TxtImg{
+    width: 100vw;
+    height: fit-content;
+    display: flex;
+    margin-top: 15vh;
+    margin-bottom: 15vh;
+}
+.TIimg{
+    width: 50vw;
+}
+.Txtabout h1{
+    font-size: 9vw;
+    text-align: center;
+    margin-top: 5vh;
+}
+.Txtabout p{
+    text-align: right;
+    width: 35vw;
+    margin-left: 4vw;
+    margin-top: 5vh;
+}
+
+/*-----H1imgTxt---------*/
+#H1imgTxt{
+    width: 100vw;
+    height: fit-content;
+    text-align: center;
+}
+.TxtH1imtxt{
+    display: flex;
+    margin-top: 5vh;
+    margin-bottom: 15vh;
+}
+.TxtH1imtxt p{
+    width: 30vw;
+    text-align: left;
+    margin-left: 2vw;
+}
+.H1ITimg{
+    height: 80vh;
+    margin-right: 1vw;
+}
+/*---------Footer---------*/
+#Footer{
+    height: 50vh;
+    width:  100vw;
+    background-color: #000;
+    padding-top: 5vh;
+    padding-left: 5vw;
+    display: flex;
+}
+#footerIkoner{
+    width: 20vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#footerIkoner img{
+    width: 5vw;
+    height: 5vw;
+
+}
+#footerIkoner img:hover{
+    opacity: 0.5;
+    transition: 0.3s ease-in-out;
+}
+#footerLogo{
+    height: 27vh;
+    width: fit-content;
+    margin-left: 6vw;
+
+}
+/*-------_FORSIDE-----------*/
+
+
+#karruselwrap {
+  position: relative;
+  width: 100vw;
+  height: 92vh;
+  overflow: hidden;
+  left: 0;
+  margin-top: 5vh;
+  margin-bottom: 15vh;
+}
+
+.carousel {
+  position: relative;
+  width: 95vw;
+  height: 100%;
+  margin-left: 2.5vw;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+#karruseltxt{
+    position: absolute;
+    z-index: 99;
+    width: 100vw;
+    margin-top: 20vh;
+    text-align: center;
+}
+#karruseltxt img{
+    width: 50vw;
+}
+#logo {
+  width: 50vw;
+  margin-bottom: 2vh;
+}
+/*-------Archive----------*/
+#Archivelanding{
+    width: 100vw;
+    height: fit-content;
+    padding-top: 10vh;
+    text-align: center;
+
+}
+#collectionContainerArchive{
+    width: 70vw;
+    margin-left: 15vw;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8vh;
+    margin-bottom: 20vh;
+    flex-wrap: wrap;
+   row-gap: 10vh;
+}
+#collectionContainerArchive img{
+    width: 32vw;
+}
+
+/*----CollectionPage---------*/
+.collectionPage{
+    text-align: center;
+    margin-top: 5vh;
+}
+/* Parent skaber vertikal scroll */
+.sticky-parent {
+  height: 300vh; /* justér efter hvor lang scroll du vil have */
+  position: relative;
+  margin-bottom: 10vh;
+}
+
+/* Sticky viewport */
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 95vh;
+  overflow: hidden; /* ❌ ingen horisontal scroll */
+  display: flex;
+  align-items: center;
+  width: 90vw;
+  margin-left: 5vw;
+}
+
+/* Billedrækken */
+.carouselTrack {
+  display: flex;
+  gap: 3vw;
+}
+
+/* Billeder */
+.carouselImage {
+  flex: 0 0 27vw;
+  height: 95vh;
+  object-fit: cover;
+}
+
+
+/*-----About-------*/
+#abouttop{
+    width: 95vw;
+    height: 97vh;
+    margin-left: 2.5vw;
+    background-image: url(./assets/images/about.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20vh;
+}
+#abouttop h1{
+    font-size: 4vw;
+    margin-bottom: -8vh;
+}
+#abouttop p{
+    width: 40vw;
+    text-align: center;
+    margin-top: 5vh;
+}
+#aboutlogo{
+    width: 40vw;
+}
+
+#aboutbaggrund{
+    background-image: url(./assets/images/COYT-158.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 20vh;
+    text-align: center;
+}
+#aboutbaggrund h1{
+    font-size: 9vw;
+    margin-bottom: 3vh;
+}
+#aboutbaggrund p{
+    width: 40vw;
+    margin: auto;
+    text-align: left;
+    padding-bottom: 50vh;
+}
+/*----Contact-------*/
+
+#contactbaggrund{
+        background-image: url(./assets/images/COYT-93.jpg);
+        background-position-y: -40vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: -10vh;
+}
+#contactbtn{
+    width: 45vw;
+}
+@media only screen and (max-width: 1100px){
+    .mobil{
+        display: block;
+    }
+    .laptop{
+        display: none;
+    }
+    h1{
+        font-size: 9vw;
+    }
+    .H1hvid{
+
+    font-size:9vw;
+    }
+    p{
+        font-size: 4vw;
+    }
+    .Phvid{
+        font-size: 4vw;
+    }
+    /*-------------burger---------------*/
+  .navlink{
+      font-size: 4.5vw;
+      display: flex;
+      padding-top: 1.5vh;
+      padding-bottom: 1.5vh;
+  }
+  .navigation{
+    padding-left: 0vw;
+    height: 100px;
+  }
+  #mobilheader{
+    display: flex;
+    justify-content: space-between;
+  }
+  #burger-menu{
+      display: block;
+      margin-left: 5vw;
+      z-index: 1;
+  }
+  #burger-menu span{
+      margin-top: 30px;
+      margin-right: 30px;
+  }
+  #burger-menu span,
+  #burger-menu span::before,
+  #burger-menu span::after {
+      background: #000;
+      display: block;
+      height: 3px;
+      opacity: 1;
+      position: absolute;
+      transition: 0.3s ease-in-out;
+  }
+  #burger-menu span:before,
+  #burger-menu span:after {
+          content: "";
+  }
+  #burger-menu span:before {
+      left: 0px;
+      top: -15px;
+      width: 45px;
+  }
+  #burger-menu span {
+      right: 0px;
+      top: 13px;
+      width: 45px;
+  }
+  #burger-menu span:after {
+      left: 0px;
+      top: 15px;
+      width: 45px;
+  }
+  #burger-menu.close span:before {
+      top: 0px;
+      transform: rotate(90deg);
+      width: 45px;
+  }
+  #burger-menu.close span {
+      transform: rotate(-45deg);
+      top: 13px;
+      width: 45px;
+  }
+  #burger-menu.close span:after {
+      top: 0px;
+      left: 0;
+      transform: rotate(90deg);
+      opacity: 0;
+      width: 0;
+  }
+
+  #menu {
+      z-index: 1;
+    width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+        display: unset;
+        align-items: center;
+  }
+  #menu.overlay {
+      visibility: visible;
+      opacity: 1;
+      margin-top: 99px;
+      background-color: #f7f5f2;
+     width: 100vw;
+     display: flex;
+     flex-direction: column;
+    padding-bottom: 45vh;
+  }
+  #xul {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      height: 40vh;
+      margin-top: 20px;
+      align-items: center;
+      padding-top: 5vh;
+      
+  }
+  
+  .no-scroll {
+    overflow: hidden;
+    height: 100vh; /* Lås højde til viewport */
+  }
+  #orderLink{
+    height:fit-content;
+    width: fit-content;
+    padding: 1vw 15vw;
+    margin-right: 0vw;
+
+  }
+  #pynt{
+    width: 35vw;
+    margin-top: 5vh;
+  }
+  /*-----COMPONENTS*/
+
+  /*----FuldBilledTxt-----*/
+.fuldbillede{
+    margin-bottom: 15vh;
+}
+.FBtxt h1{
+    width: 80vw;
+    margin: auto;
+    padding-bottom: 10vh;
+}
+.FBtxt p{
+    width: 80vw;
+    margin: auto;
+}
+#forsidebaggrund{
+    background-position-x: 50%;
+}
+.btn{
+    font-size: 4vw;
+}
+.btndivretail{
+    width: 80vw;
+}
+.retailbtn{
+    width: 25vw;
+    padding: 0.5vh 6vw
+  }
+
+  /*------CollectionCard---------*/
+  #collectionContainer{
+    width: 90vw;
+    margin-left: 5vw;
+  }
+  .CCimg{
+    width: 43vw;
+    height: 45vh    ;
+  }
+/*-----H1imgTxt---------*/
+
+.TxtH1imtxt{
+    flex-direction: column-reverse;
+    gap: 5vh;
+}
+.TxtH1imtxt p{
+    width: 90vw;
+}
+
+.TxtH1imtxt div{
+    display: flex;
+    width: 100vw;
+}
+.H1ITimg{
+    height: 50vh
+}
+  /*-------Footer-----*/
+  #Footer{
+    flex-direction: column-reverse;
+    height: fit-content;
+    padding-bottom: 5vh;
+    align-items: center;
+  }
+
+  #footerIkoner{
+   flex-direction: row;
+   height: fit-content;
+   margin-top: 5vh;
+   width: 35vw;
+  }
+  #footerIkoner img{
+    width: 8vw;
+    height: 8vw;}
+
+#footerLogo{
+    width: 50vw;
+    height: fit-content;
+    margin: auto;
+
+}
+
+/*----Txtimg------*/
+#TxtImg{
+    flex-direction: column;
+    margin-top: 10vh;
+}
+.Txtabout h1{
+    font-size: 12vw;
+}
+.Txtabout p{
+    width: 85vw;
+   margin-bottom: 4vh;
+}
+.TIimg{
+    width: 70vw;
+} 
+  /*-----PAGES----------*/
+  /*-------Forside----------*/
+ #karruseltxt img{
+    width: 70vw;
+} 
+#karruseltxt{
+    margin-top: 30vh;
+}
+
+/*----Archive---------*/
+#collectionContainerArchive{
+    margin-bottom: 15vh;
+    width: 80vw;
+    margin-left: 10vw;
+}
+#collectionContainerArchive img{
+    width: 37vw;
+}
+/*-----CollectionPage-------*/
+.collectionPage{
+    margin-top: 7vh;
+}
+.collectionPage h1{
+    font-size: 10vw;
+}
+.carouselWrapper {
+    height: 80vh;
+}
+.carouselImage {
+    height: 80vh;
+    flex: 0 0 75vw;
+}
+
+/*-----About-----*/
+#abouttop{
+    background-position-x: -40vw;
+    padding-top: 25vh;
+}
+#abouttop h1{
+    margin-bottom: -5vh;
+}
+#aboutlogo{
+    width: 50vw;
+}
+#aboutbaggrund{
+    background-position-x: -30vw;
+}
+#abouttop p{
+    width: 80vw;
+}
+#aboutbaggrund h1{
+    font-size: 12vw;
+}
+#aboutbaggrund p{
+    width: 80vw;
+}
+
+/*---Contact-----*/
+#contactbaggrund{
+          background-position-y: 0vh;
+   
+    
+}
+#contactbtn{
+    width: 70vw;
+
+    padding-bottom: 35vh;
+}
+}
+
+
+@media only screen and (max-width: 800px){
+      .mobil{
+        display: block;
+    }
+    .laptop{
+        display: none;
+    }
+    h1{
+        font-size: 11vw;
+    }
+    .H1hvid{
+        font-size: 11vw;
+    }
+    .StorH1{
+        font-size: 14vw;
+    }
+    p{
+        font-size: 5vw;
+    }
+    .Phvid{
+        font-size: 5vw;
+    }
+    /*-------------burger---------------*/
+    .navlink{
+        font-size: 5.5vw;
+        padding-top: 2.5vh;
+        padding-bottom: 2.5vh;
+    }
+    .navigation{
+      height: 70px;
+    }
+    #burger-menu span{
+        margin-top: 20px;
+        margin-right: 20px;
+    }
+
+      #burger-menu span,
+  #burger-menu span::before,
+  #burger-menu span::after {
+      height: 1px;
+  }
+    #burger-menu span:before {
+        top: -10px;
+        width: 27px;
+    }
+    #burger-menu span {
+        top: 13px;
+        width: 27px;
+    }
+    #burger-menu span:after {
+        top: 10px;
+        width: 27px;
+    }
+    #burger-menu.close span:before {
+        width: 27px;
+    }
+    #burger-menu.close span {
+        transform: rotate(-45deg);
+        top: 13px;
+        width: 27px;
+    }
+    #burger-menu.close span:after {
+        top: 0px;
+        left: 0;
+        transform: rotate(90deg);
+        opacity: 0;
+        width: 0;
+    }
+  
+    #menu.overlay {
+        margin-top: 52px;
+    }
+    #xul {
+        margin-top: 30px;
+        margin-bottom: 10vh;
+    }
+
+    /*-----COMPONENTS-----*/
+
+    .FBtxt h1{
+        padding-bottom: 5vh;
+    }
+    .btndivretail{
+        padding-bottom: 20vh;
+    }
+    /*------TxtImg--------*/
+    .Txtabout h1{
+    font-size: 15vw;
+
+    }
+    /*------CollectionCard----*/
+    .CCimg{
+        height: 30vh;
+    }
+/*-----H1imgTxt---------*/
+
+
+.TxtH1imtxt div{
+    display: flex;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.H1ITimg{
+    height: 35VH;
+}
+    /*-------PAGES*-------*/
+    /*-----Forside------*/
+    #forside-2{
+        object-position: 65%;
+    }
+    #forside-4{
+        object-position: 60%;
+    }
+
+    /*-------Archive----------*/
+    #collectionContainerArchive{
+        width: 90vw;
+        margin-left: 5vw;
+    }
+    #collectionContainerArchive img{
+        width: 42vw;
+    }
+    /*-----CollectionPage-------*/
+    .collectionPage h1{
+        font-size: 11vw;
+    }
+ .sticky {
+  width: 100vw;
+  margin-left: 0vw;
+}
+.carouselTrack {
+  gap: 0vw;
+}
+/*-----About-----*/
+#abouttop{
+    background-position-x: -70vw;
+    padding-top: 30vh;
+}
+#abouttop h1{
+    margin-bottom: -2vh;
+    font-size: 7vw;
+}
+#aboutlogo{
+    width: 70vw;
+}
+#aboutbaggrund{
+    background-position-x: -30vw;
+}
+#abouttop p{
+    width: 80vw;
+}
+#aboutbaggrund h1{
+    font-size: 12vw;
+}
+#aboutbaggrund p{
+    width: 80vw;
+}
+
+#aboutbaggrund{
+    background-position-x: -60vw;
+    padding-top: 15vh;
+}
+#aboutbaggrund h1{
+    font-size: 15vw;
+    margin-bottom: 3vh;
+}
+#aboutbaggrund p{
+    padding-bottom: 30vh;
+}
+/*-------Contatct-------*/
+#contactbaggrund{
+       
+        background-position-x: -100vw;
+
+}
+}
