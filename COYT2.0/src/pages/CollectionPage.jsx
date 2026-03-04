@@ -11,30 +11,69 @@ export default function CollectionPage() {
   const parentRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (!stickyRef.current || !parentRef.current) return;
+    const sticky = stickyRef.current;
+    const parent = parentRef.current;
 
-      const sticky = stickyRef.current;
-      const parent = parentRef.current;
+    if (!sticky || !parent) return;
 
+    const setHeight = () => {
       const scrollWidth = sticky.scrollWidth;
-      const parentHeight = parent.getBoundingClientRect().height;
-      const stickyHeight = sticky.getBoundingClientRect().height;
+      const viewportWidth = window.innerWidth;
 
-      const verticalScrollHeight = parentHeight - stickyHeight;
-      const stickyTop = sticky.getBoundingClientRect().top;
+      const horizontalScrollDistance = scrollWidth - viewportWidth;
 
-      // samme logik som dit eksempel
-      if (stickyTop > 0) return;
-
-      const scrolled = parent.getBoundingClientRect().top * -1;
-
-      sticky.scrollLeft =
-        (scrollWidth / verticalScrollHeight) * scrolled * 0.85;
+      parent.style.height =
+        horizontalScrollDistance + window.innerHeight + "px";
     };
 
-    document.addEventListener("scroll", handleScroll);
-    return () => document.removeEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      const parentRect = parent.getBoundingClientRect();
+      const totalScrollDistance =
+        parent.offsetHeight - window.innerHeight;
+
+      const scrolled = Math.min(
+        Math.max(-parentRect.top, 0),
+        totalScrollDistance
+      );
+
+      const maxHorizontalScroll =
+        sticky.scrollWidth - window.innerWidth;
+
+      const progress = scrolled / totalScrollDistance;
+
+      sticky.scrollLeft = maxHorizontalScroll * progress;
+    };
+
+    // Vent til alle billeder er loaded før vi måler
+    const images = sticky.querySelectorAll("img");
+    let loaded = 0;
+
+    const checkLoaded = () => {
+      loaded++;
+      if (loaded === images.length) {
+        setHeight();
+      }
+    };
+
+    images.forEach((img) => {
+      if (img.complete) {
+        checkLoaded();
+      } else {
+        img.addEventListener("load", checkLoaded);
+      }
+    });
+
+    if (images.length === 0) {
+      setHeight();
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", setHeight);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", setHeight);
+    };
   }, []);
 
   if (!collection) return <p>Collection not found</p>;
@@ -44,9 +83,7 @@ export default function CollectionPage() {
       <h1>{collection.title}</h1>
       <p>{collection.subtitle}</p>
 
-      {/* STICKY PARENT */}
       <div className="sticky-parent" ref={parentRef}>
-        {/* STICKY ELEMENT */}
         <div className="sticky" ref={stickyRef}>
           <div className="carouselTrack">
             {collection.images.map((img, i) => (

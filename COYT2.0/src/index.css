@@ -203,25 +203,32 @@ a{
 }
 
 /*----CollectionCard------*/
-#horisontalscroll{
+#horisontalscroll {
+overflow-x: auto; 
+overflow-y: hidden; 
+scrollbar-width: none; /* Firefox */ 
+-ms-overflow-style: none; 
+scroll-snap-type: x mandatory; 
+-webkit-overflow-scrolling: touch;
+}
 
+
+#collectionContainer{ 
+    width: 100vw; 
+    padding-left: 5vw; 
+    gap: 4vw; 
+    display: flex; 
+    justify-content: space-between; 
+    margin-top: 8vh; 
+    margin-bottom: 20vh; 
+    overscroll-behavior: contain; 
     overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none;        /* Firefox */
-    -ms-overflow-style: none; 
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    overflow-y: visible; /* ← ændret fra hidden */
+}
+#collectionContainer::-webkit-scrollbar {
+    display: none;              /* Chrome / Safari */
+}
 
-}
-#collectionContainer{
-    width: 100vw;
-    padding-left: 5vw;
-    gap: 4vw;
-    display: flex;  
-    justify-content: space-between;
-    margin-top: 8vh;
-    margin-bottom: 20vh;
-}
 #collecioncard{
     text-align: left;
     margin-bottom: 5vh;
@@ -258,7 +265,7 @@ a{
     margin-top: 5vh;
 }
 .Txtabout p{
-    text-align: right;
+
     width: 35vw;
     margin-left: 4vw;
     margin-top: 5vh;
@@ -441,12 +448,13 @@ a{
     margin-bottom: -8vh;
 }
 #abouttop p{
-    width: 40vw;
+    width: 50vw;
     text-align: center;
     margin-top: 5vh;
+    margin-bottom: 2vh;
 }
 #aboutlogo{
-    width: 40vw;
+    width: 35vw;
 }
 
 #aboutbaggrund{
@@ -874,6 +882,9 @@ a{
 
     }
     /*------CollectionCard----*/
+    #collectionContainer{
+        gap: 0vw;
+    }
     .CCimg{
         height: 30vh;
     }
